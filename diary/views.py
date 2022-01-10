@@ -17,10 +17,14 @@ posts = [
 
 
 def home(request):
+    return render(request, 'diary/home.html')
+
+
+def post(request):
     context = {
         'posts': posts
     }
-    return render(request, 'diary/home.html', context)
+    return render(request, 'diary/posts.html', context)
 
 
 def about(request):
