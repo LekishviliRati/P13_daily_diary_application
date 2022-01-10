@@ -1,19 +1,5 @@
 from django.shortcuts import render
-
-posts = [
-    {
-        'author': 'Rati',
-        'title': 'Post 1',
-        'content': 'First pos content',
-        'date': '9 Janvier 2022'
-    },
-    {
-        'author': 'Ratii',
-        'title': 'Post 2',
-        'content': 'Second post content',
-        'date': '10 Janvier 2022'
-    }
-]
+from . models import Post
 
 
 def home(request):
@@ -22,7 +8,7 @@ def home(request):
 
 def post(request):
     context = {
-        'posts': posts
+        'posts': Post.objects.all()
     }
     return render(request, 'diary/posts.html', context)
 
