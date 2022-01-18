@@ -5,11 +5,13 @@ from .views import (
     PostDetailView,
     PostCreateView,
     PostUpdateView,
-    PostDeleteView
+    PostDeleteView,
+    UserPostListView
 )
 
 urlpatterns = [
     path('', views.home, name='diary-home'),
+    path('user/<str:username>', UserPostListView.as_view(), name='user-posts'),
     # path('post/', views.post, name='diary-post'),
     path('post/', PostListView.as_view(), name='diary-post'),
     path('post/article/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
