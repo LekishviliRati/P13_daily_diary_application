@@ -19,3 +19,6 @@ class Profile(models.Model):
             output_size = (350, 350)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+
+# class resident(models.Model):
