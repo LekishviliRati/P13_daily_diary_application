@@ -10,8 +10,10 @@ class Post(models.Model):
     date = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    # __str__ method returns defined value instead of "obj 96xaUb..."
     def __str__(self):
         return self.title
 
+    # get to one post page, taking as argument primary key
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
