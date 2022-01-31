@@ -36,6 +36,7 @@
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
                 {% if user.is_authenticated %}
+                    <a class="nav-item nav-link" href="{% url 'user-residents' %}"> Résidents </a>
                     <a class="nav-item nav-link" href="{% url 'diary-post' %}"> Articles </a>
                     <a class="nav-item nav-link" href="{% url 'post-create' %}"> Publier </a>
                     <a class="nav-item nav-link" href="{% url 'profile' %}"> Profile </a>
