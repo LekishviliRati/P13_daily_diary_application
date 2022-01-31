@@ -38,6 +38,11 @@ urlpatterns = [
     path('password-reset-complete/',
          auth_views.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'),
          name='password_reset_complete'),
+
+    # new resident list view
+    path('residents/', user_views.ResidentListView.as_view(), name='user-residents'),
+    path('residents/<int:pk>/', user_views.ResidentDetailView.as_view(), name='resident-detail'),
+
     path('', include('diary.urls')),
 ]
 

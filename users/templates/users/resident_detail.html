@@ -1,0 +1,22 @@
+{% extends "diary/base.html" %}
+{% block content %}
+
+    <article class="media content-section">
+        <!-- "object" is used instead of "post" because of class based views -->
+      <div class="media-body">
+        <div class="article-metadata">
+          <small class="text-muted"> Date d'ajout {{ object.entry_date}}</small>
+        </div>
+        <h2 class="article-title"> {{ object.first_name }} {{ object.first_name }} </h2>
+        <p class="article-content"> <strong>Date de naissance : </strong> {{ object.birth_date }}</p>
+        <p class="article-content"> <strong>Lieu de naissance : </strong> {{ object.place_of_birth }}</p>
+        <p class="article-content"> <strong>Proches : </strong> {{ object.relatives }}</p>
+        <p class="article-content"> <strong>Information a ne pas divulguer : </strong> {{ object.secret_information }}</p>
+        <p class="article-content"> <strong>Médecin traitant : </strong> {{ object.treating_doctor }}</p>
+        <p class="article-content"> <strong>Médicaments prescrits : </strong>  <br>{{ object.medical_treatment }}</p>
+          <a class="btn btn-outline-info mb-4" href="{% url 'post-create' %}"> Compte rendu </a>
+      </div>
+    </article>
+
+{% endblock content %}
+

@@ -2,6 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+# new
+from .models import Resident
+from django.views.generic import (
+    ListView,
+    DetailView
+)
 
 
 def register(request):
@@ -37,3 +43,18 @@ def profile(request):
     }
 
     return render(request, 'users/profile.html', context)
+
+
+# NEW Resident List View
+class ResidentListView(ListView):
+    model = Resident
+    template_name = "users/residents.html"
+    context_object_name = "residents"
+    paginate_by = 5
+    ordering = ['last_name']
+
+
+# NEW Resident detail View
+class ResidentDetailView(DetailView):
+    model = Resident
+
