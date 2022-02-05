@@ -2,6 +2,7 @@
 {% block content %}
     {% for resident in residents %}
         <article class="media content-section">
+            <img class="rounded-circle account-img" src="{{ resident.image.url }}">
           <div class="media-body">
             <div class="article-metadata">
               <p> Date d'entrée : {{ resident.entry_date }}</p>
