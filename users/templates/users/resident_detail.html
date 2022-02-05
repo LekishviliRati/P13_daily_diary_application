@@ -3,11 +3,12 @@
 
     <article class="media content-section">
         <!-- "object" is used instead of "post" because of class based views -->
+        <img class="rounded-circle account-img" src="{{ resident.image.url }}">
       <div class="media-body">
         <div class="article-metadata">
           <small class="text-muted"> Date d'ajout {{ object.entry_date}}</small>
         </div>
-        <h2 class="article-title"> {{ object.first_name }} {{ object.first_name }} </h2>
+        <h2 class="article-title"> {{ object.first_name }} {{ object.last_name }} </h2>
         <p class="article-content"> <strong>Date de naissance : </strong> {{ object.birth_date }}</p>
         <p class="article-content"> <strong>Lieu de naissance : </strong> {{ object.place_of_birth }}</p>
         <p class="article-content"> <strong>Proches : </strong> {{ object.relatives }}</p>

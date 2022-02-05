@@ -33,7 +33,17 @@ class Resident(models.Model):
     treating_doctor = models.CharField(max_length=250)
     medical_treatment = models.TextField()
     entry_date = models.DateField(default=timezone.now)
+    image = models.ImageField(default='default.jpg', upload_to='resident_pics')
 
     def __str__(self):
         return f'{self.first_name} {self.last_name} '
 
+    def save(self):
+        super().save()
+
+        img = Image.open(self.image.path)
+
+        if img.height > 350 or img.width > 350:
+            output_size = (350, 350)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
