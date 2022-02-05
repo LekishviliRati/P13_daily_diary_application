@@ -65,7 +65,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         form.instance.author = self.request.user    # To publish a post need to specify author id
         return super().form_valid(form)
 
-    # User asking for updating post must be the author of it
+    # User asking for updating post must be the author of the post
     def test_func(self):
         post = self.get_object()
         if self.request.user == post.author:
