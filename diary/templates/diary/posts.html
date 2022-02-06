@@ -8,6 +8,12 @@
               <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
               <small class="text-muted">{{ post.date|date:"d F, Y à G:i" }}</small>
             </div>
+            <h4>
+                <a class="article-title" href="{% url 'resident-detail' post.resident.id %}">
+                 {{ post.resident.first_name}} {{ post.resident.last_name}}
+                    <img class="rounded-circle article-img" src="{{ post.resident.image.url}}">
+                </a>
+            </h4>
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
             <p class="article-content">{{ post.content }}</p>
           </div>

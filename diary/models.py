@@ -10,7 +10,7 @@ class Post(models.Model):
     content = models.TextField()
     date = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    resident = models.ForeignKey(Resident, on_delete=models.CASCADE)
+    resident = models.ForeignKey(Resident, default=1, on_delete=models.CASCADE)
 
     # __str__ method returns defined value instead of "obj 96xaUb..."
     def __str__(self):
