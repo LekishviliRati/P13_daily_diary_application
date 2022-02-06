@@ -15,7 +15,7 @@
         <p class="article-content"> <strong>Information a ne pas divulguer : </strong> {{ object.secret_information }}</p>
         <p class="article-content"> <strong>Médecin traitant : </strong> {{ object.treating_doctor }}</p>
         <p class="article-content"> <strong>Médicaments prescrits : </strong>  <br>{{ object.medical_treatment }}</p>
-          <a class="btn btn-outline-info mb-4" href="{% url 'post-create' %}"> Compte rendu </a>
+          <a class="btn btn-outline-info mb-4" href="{% url 'post-create' object.id %}"> Compte rendu </a>
       </div>
     </article>
 
