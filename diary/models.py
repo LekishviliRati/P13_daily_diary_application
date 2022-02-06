@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from users.models import Resident
 
 
 class Post(models.Model):
@@ -9,6 +10,7 @@ class Post(models.Model):
     content = models.TextField()
     date = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    resident = models.ForeignKey(Resident, on_delete=models.CASCADE)
 
     # __str__ method returns defined value instead of "obj 96xaUb..."
     def __str__(self):
