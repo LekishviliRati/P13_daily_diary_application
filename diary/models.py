@@ -18,4 +18,5 @@ class Post(models.Model):
 
     # To get to one post page, taking as argument primary key
     def get_absolute_url(self):
-        return reverse('post-detail', kwargs={'pk': self.pk})
+        # return reverse('post-detail', kwargs={'pk': self.pk})
+        return reverse('diary-post')
