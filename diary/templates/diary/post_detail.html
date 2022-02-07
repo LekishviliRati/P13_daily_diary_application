@@ -15,6 +15,12 @@
               </div>
           {% endif %}
         </div>
+        <h4>
+            <a class="article-title" href="{% url 'resident-detail' object.resident.id %}">
+             {{ object.resident.first_name}} {{ object.resident.last_name}}
+                <img class="rounded-circle article-img" src="{{ object.resident.image.url}}">
+            </a>
+        </h4>
         <h2 class="article-title"> {{ object.title }} </h2>
         <p class="article-content"> {{ object.content }}</p>
       </div>
