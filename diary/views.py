@@ -52,8 +52,14 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title', 'resident', 'content']
 
+    # Initialise resident value
+    def get_initial(self, *args, **kwargs):
+        initial = super().get_initial(**kwargs)
+        initial['resident'] = self.kwargs.get('pk')  # Get pk in url to initialise resident field.
+        return initial
+
     def form_valid(self, form):
-        form.instance.author = self.request.user    # To publish a post need to specify author id
+        form.instance.author = self.request.user  # To publish a post, need author id.
         return super().form_valid(form)
 
 
@@ -62,7 +68,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     fields = ['title', 'content']
 
     def form_valid(self, form):
-        form.instance.author = self.request.user    # To publish a post need to specify author id
+        form.instance.author = self.request.user  # To publish a post need to specify author id
         return super().form_valid(form)
 
     # User asking for updating post must be the author of the post
