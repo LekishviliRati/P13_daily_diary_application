@@ -1,7 +1,6 @@
 from django.contrib import admin
-from .models import Profile, Resident, Relative
+from .models import Profile, Resident
 
 admin.site.register(Profile)
 admin.site.register(Resident)
-admin.site.register(Relative)
 
