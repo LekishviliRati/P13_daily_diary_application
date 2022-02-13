@@ -38,7 +38,7 @@ class Profile(models.Model):
     image = models.ImageField(default='default.jpg', upload_to='pics')
     phone_number = models.CharField(default='Pas renseigné', max_length=40)
     address = models.CharField(default='Pas renseigné', max_length=150)
-    status = models.CharField(default='1', max_length=20, choices=(('1', 'employee'), ('2', 'relative')))
+    status = models.CharField(default='2', max_length=20, choices=(('1112', 'employee'), ('25727', 'relative')))
     relatives = models.ManyToManyField(Resident)
 
     class Meta:

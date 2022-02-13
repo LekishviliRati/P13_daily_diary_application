@@ -42,7 +42,6 @@ urlpatterns = [
     # new resident list view
     path('residents/', user_views.ResidentListView.as_view(), name='user-residents'),
     path('residents/<int:pk>/', user_views.ResidentDetailView.as_view(), name='resident-detail'),
-    ##
 
     # new user list view
     path('users/', user_views.UserListView.as_view(), name='users'),

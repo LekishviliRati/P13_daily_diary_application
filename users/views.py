@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 # new
-from .models import Resident
+from .models import Resident, Profile
 # new
 from django.contrib.auth.models import User
 from django.views.generic import (
@@ -48,7 +48,6 @@ def profile(request):
 
 
 # NEW Resident List View
-@login_required
 class ResidentListView(ListView):
     model = Resident
     template_name = "users/residents.html"
@@ -58,17 +57,18 @@ class ResidentListView(ListView):
 
 
 # NEW Resident detail View
-@login_required
 class ResidentDetailView(DetailView):
     model = Resident
 
 
 # NEW User List View
-@login_required
 class UserListView(ListView):
     model = User
     template_name = "users/users.html"
     context_object_name = "users"
     paginate_by = 5
     ordering = ['last_name']
+
+
+
 

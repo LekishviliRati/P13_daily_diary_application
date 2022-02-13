@@ -12,8 +12,16 @@
                  </h2>
 
             </div>
+            <p> <strong>Nom d'untilisateur :</strong> {{ user.username }}</p>
             <p> <strong>Téléphone :</strong> {{ user.profile.phone_number }}</p>
-            <p class="article-content"> <strong>Statut :</strong> {{ user.profile.status }}</p>
+            <p class="article-content"> <strong>Statut :</strong>
+                {% if user.profile.status == "1" %}
+                    Employé
+                {% elif user.profile.status == "2" %}
+                    Proche du résident : {{ user.profile.phone_number }}
+                {% else %}
+                {% endif %}
+            </p>
             <p class="article-content"> <strong>E-Mail :</strong> {{ user.email }}</p>
             <p class="article-content"> <strong>Adresse :</strong> {{ user.profile.address }}</p>
           </div>
