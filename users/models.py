@@ -14,7 +14,7 @@ class Resident(models.Model):
     treating_doctor = models.CharField(max_length=250)
     medical_treatment = models.TextField()
     entry_date = models.DateField(default=timezone.now)
-    image = models.ImageField(default='default.jpg', upload_to='resident_pics')
+    image = models.ImageField(default='default.jpg', upload_to='pics')
 
     class Meta:
         ordering = ['last_name']
@@ -35,10 +35,10 @@ class Resident(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
-    phone_number = models.CharField(default='Numéro de téléphone', max_length=40)
-    address = models.CharField(default='Adresse', max_length=150)
-    status = models.CharField(default='1', max_length=2, choices=(('1', 'employee'), ('2', 'relative')))
+    image = models.ImageField(default='default.jpg', upload_to='pics')
+    phone_number = models.CharField(default='Pas renseigné', max_length=40)
+    address = models.CharField(default='Pas renseigné', max_length=150)
+    status = models.CharField(default='1', max_length=20, choices=(('1', 'employee'), ('2', 'relative')))
     relatives = models.ManyToManyField(Resident)
 
     class Meta:
@@ -47,8 +47,8 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
-    def save(self):
-        super().save()
+    def save(self, *args, **kwargs):
+        super(Profile, self).save(*args, **kwargs)
 
         img = Image.open(self.image.path)
 

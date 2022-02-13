@@ -5,11 +5,11 @@
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4"> Inscrivez-vous Aujourd'hui</legend>
+                <legend class="border-bottom mb-4"> Création d'un nouveau compte utilisateur </legend>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit"> Inscrivez-vous ! </button>
+                <button class="btn btn-outline-info" type="submit"> Création du compte </button>
             </div>
         </form>
         <div class="border-top pt-3">

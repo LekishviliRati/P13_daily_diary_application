@@ -1,0 +1,41 @@
+{% extends "diary/base.html" %}
+{% block content %}
+    {% for user in users %}
+        <article class="media content-section">
+            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+          <div class="media-body">
+            <div class="article-metadata">
+                <h2>
+                    <p class="article-title mb-4">
+                        {{ user.last_name }} {{ user.first_name }}
+                    </p>
+                 </h2>
+
+            </div>
+            <p> <strong>Téléphone :</strong> {{ user.profile.phone_number }}</p>
+            <p class="article-content"> <strong>Statut :</strong> {{ user.profile.status }}</p>
+            <p class="article-content"> <strong>E-Mail :</strong> {{ user.email }}</p>
+            <p class="article-content"> <strong>Adresse :</strong> {{ user.profile.address }}</p>
+          </div>
+        </article>
+    {% endfor%}
+    <!-- Pagination -->
+    {% if is_paginated %}
+        {% if page_obj.has_previous %}
+            <a class="btn btn-outline-info mb-4" href="?page=1"> Premier </a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}"> Précédent </a>
+        {% endif %}
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_object.number == num %}
+                <a class="btn btn-info mb-4" href="?page={{ num }}"> {{ num }} </a>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <a class="btn btn-outline-info mb-4" href="?page={{ num }}"> {{ num }} </a>
+            {% endif  %}
+        {% endfor %}
+        <!-- Pagination -->
+        {% if page_obj.has_next %}
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}"> Suivant </a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}"> Dernière page </a>
+        {% endif %}
+    {% endif %}
+{% endblock content %}

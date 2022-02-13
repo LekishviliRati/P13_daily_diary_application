@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 # new
 from .models import Resident
+# new
+from django.contrib.auth.models import User
 from django.views.generic import (
     ListView,
     DetailView
@@ -16,8 +18,8 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Compte créé pour {username} 🎉, vous pouvez à présent vous connecter ! ')
-            return redirect('login')
+            messages.success(request, f'Compte créé pour {username} 🎉 ')
+            return redirect('users')
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
@@ -57,4 +59,13 @@ class ResidentListView(ListView):
 # NEW Resident detail View
 class ResidentDetailView(DetailView):
     model = Resident
+
+
+# NEW User List View
+class UserListView(ListView):
+    model = User
+    template_name = "users/users.html"
+    context_object_name = "users"
+    paginate_by = 5
+    ordering = ['last_name']
 

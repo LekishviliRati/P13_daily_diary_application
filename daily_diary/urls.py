@@ -44,6 +44,9 @@ urlpatterns = [
     path('residents/<int:pk>/', user_views.ResidentDetailView.as_view(), name='resident-detail'),
     ##
 
+    # new user list view
+    path('users/', user_views.UserListView.as_view(), name='users'),
+
     path('', include('diary.urls')),
 ]
 
