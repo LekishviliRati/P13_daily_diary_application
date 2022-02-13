@@ -48,6 +48,7 @@ def profile(request):
 
 
 # NEW Resident List View
+@login_required
 class ResidentListView(ListView):
     model = Resident
     template_name = "users/residents.html"
@@ -57,11 +58,13 @@ class ResidentListView(ListView):
 
 
 # NEW Resident detail View
+@login_required
 class ResidentDetailView(DetailView):
     model = Resident
 
 
 # NEW User List View
+@login_required
 class UserListView(ListView):
     model = User
     template_name = "users/users.html"
