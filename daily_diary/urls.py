@@ -46,6 +46,9 @@ urlpatterns = [
     # new user list view
     path('users/', user_views.UserListView.as_view(), name='users'),
 
+    # new relative residents
+    path('relative_profiles/<str:username>/', user_views.RelativeProfileListView.as_view(), name='relative-profiles'),
+
     path('', include('diary.urls')),
 ]
 

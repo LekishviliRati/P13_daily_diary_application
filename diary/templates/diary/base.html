@@ -51,6 +51,7 @@
                         <a class="nav-item nav-link" href="{% url 'profile' %}"> Mon Profile </a>
                         <a class="nav-item nav-link" href="{% url 'logout' %}"> Déconnexion </a>
                     {% elif user.is_active %}
+                        <a class="nav-item nav-link" href="{% url 'relative-profiles' user.username %}"> Mes résidents </a>
                         <a class="nav-item nav-link" href="{% url 'profile' %}"> Mon Profile </a>
                         <a class="nav-item nav-link" href="{% url 'logout' %}"> Déconnexion </a>
                     {% endif %}

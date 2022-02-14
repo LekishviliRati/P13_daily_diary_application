@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
@@ -70,5 +70,19 @@ class UserListView(ListView):
     ordering = ['last_name']
 
 
+# NEW Resident List View
+class RelativeProfileListView(ListView):
+    model = Profile
+    template_name = "users/relative_profiles.html"
+    context_object_name = "relatives"
+    paginate_by = 5
+    ordering = ['last_name']
+
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        relatives = user.profile.relatives.all()
+        return relatives
+        # user = get_object_or_404(User, username=self.kwargs.get('username'))
+        # return Profile.objects.filter(relatives=user).order_by('-id')
 
 
