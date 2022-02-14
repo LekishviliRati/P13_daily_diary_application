@@ -6,12 +6,14 @@ from .views import (
     PostCreateView,
     PostUpdateView,
     PostDeleteView,
-    UserPostListView
+    UserPostListView,
+    ResidentPostListView
 )
 
 urlpatterns = [
     path('', views.home, name='diary-home'),
     path('user/<str:username>', UserPostListView.as_view(), name='user-posts'),
+    path('resident_post/<int:id>', ResidentPostListView.as_view(), name='resident-posts'),
     # Function based view  : path('post/', views.post, name='diary-post'),
     # Class based view : path('post/', PostListView.as_view(), name='diary-post'),
     path('post/', PostListView.as_view(), name='diary-post'),

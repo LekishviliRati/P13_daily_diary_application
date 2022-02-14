@@ -93,3 +93,17 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 def about(request):
     return render(request, 'diary/about.html', {'title': 'About'})
+
+
+# new residents posts list view
+class ResidentPostListView(ListView):
+    model = Post
+    template_name = 'diary/resident_posts.html'
+    context_object_name = 'posts'  # Without context_object_name nos posts are displayed
+    ordering = ['-date']  # Display Posts from earliest to oldest
+    paginate_by = 5
+
+    def get_queryset(self):
+        resident_id = self.kwargs.get('id')
+        post = Post.objects.filter(resident=resident_id)
+        return post
