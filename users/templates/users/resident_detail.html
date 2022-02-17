@@ -12,14 +12,19 @@
         <p class="article-content"> <strong>Date de naissance : </strong> {{ resident.birth_date }}</p>
         <p class="article-content"> <strong>Lieu de naissance : </strong> {{ resident.place_of_birth }}</p>
         <p class="article-content"> <strong>Médecin traitant : </strong> {{ resident.treating_doctor }}</p>
+        <p class="article-content"> <strong>Opérations subies : </strong>
+            - {{ resident.surgeries }}
+        </p>
           {% if user.is_superuser %}
-          <p class="article-content"> <strong>Proches : </strong> {{ relatives }}</p>
+          <p class="article-content"> <strong>Proches : </strong>
+              {{ resident.relatives }}
+          </p>
           <p class="article-content"> <strong>Médicaments prescrits : </strong>  <br>{{ resident.medical_treatment }}</p>
           <p class="article-content"> <strong>Information a ne pas divulguer : </strong> {{ resident.secret_information }}</p>
           <a class="btn btn-outline-info mb-4" href="{% url 'post-create' resident.id %}"> Compte rendu </a>
           <a class="btn btn-outline-info mb-4" href="{% url 'resident-posts' resident.id %}"> Liste de comptes rendus </a>
           {% elif user.is_staff %}
-          <p class="article-content"> <strong>Proches : </strong> {{ relatives }}</p>
+          <p class="article-content"> <strong>Proches : </strong> {{ resident.relatives }}</p>
           <p class="article-content"> <strong>Médicaments prescrits : </strong>  <br>{{ resident.medical_treatment }}</p>
           <p class="article-content"> <strong>Information a ne pas divulguer : </strong> {{ resident.secret_information }}</p>
           <a class="btn btn-outline-info mb-4" href="{% url 'post-create' resident.id %}"> Compte rendu </a>
