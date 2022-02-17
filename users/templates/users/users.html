@@ -15,12 +15,12 @@
             <p> <strong>Nom d'untilisateur :</strong> {{ user.username }}</p>
             <p> <strong>Téléphone :</strong> {{ user.profile.phone_number }}</p>
             <div class="article-content"> <strong>Statut : </strong>
-                {% if user.profile.status == "1" %}
+                <h5 style="color: #E9502F"> {% if user.profile.status == "1" %}
                     Employé
                 {% elif user.profile.status == "2" %}
                     Proche d'un résident
                 {% else %}
-                {% endif %}
+                {% endif %}</h5>
             </div>
 
             <p class="article-content"> <strong>E-Mail : </strong> <a href="mailto: someone@example.com">{{ user.email }}</a> </p>

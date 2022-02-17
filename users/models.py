@@ -11,6 +11,7 @@ class Resident(models.Model):
     place_of_birth = models.CharField(max_length=50)
     secret_information = models.TextField()
     surgeries = models.TextField()
+    relatives = models.TextField(default='Pas de proches')
     treating_doctor = models.CharField(max_length=250)
     medical_treatment = models.TextField()
     entry_date = models.DateField(default=timezone.now)
