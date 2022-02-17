@@ -15,8 +15,15 @@
         <p class="article-content"> <strong>Information a ne pas divulguer : </strong> {{ object.secret_information }}</p>
         <p class="article-content"> <strong>Médecin traitant : </strong> {{ object.treating_doctor }}</p>
         <p class="article-content"> <strong>Médicaments prescrits : </strong>  <br>{{ object.medical_treatment }}</p>
+          {% if user.is_superuser %}
           <a class="btn btn-outline-info mb-4" href="{% url 'post-create' object.id %}"> Compte rendu </a>
           <a class="btn btn-outline-info mb-4" href="{% url 'resident-posts' object.id %}"> Liste de comptes rendus </a>
+          {% elif user.is_staff %}
+          <a class="btn btn-outline-info mb-4" href="{% url 'post-create' object.id %}"> Compte rendu </a>
+          <a class="btn btn-outline-info mb-4" href="{% url 'resident-posts' object.id %}"> Liste de comptes rendus </a>
+          {% elif user.is_active %}
+          <a class="btn btn-outline-info mb-4" href="{% url 'resident-posts' object.id %}"> Liste de comptes rendus </a>
+          {% endif %}
       </div>
     </article>
 
