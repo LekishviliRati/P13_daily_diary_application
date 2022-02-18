@@ -23,7 +23,7 @@
           <p class="article-content"> <strong>Médicaments prescrits : </strong>  <br>{{ resident.medical_treatment }}</p>
           <p class="article-content"> <strong>Information a ne pas divulguer : </strong> {{ resident.secret_information }}</p>
           <a class="btn btn-outline-info mb-4" href="{% url 'post-create' resident.id %}"> Compte rendu </a>
-          <a class="btn btn-outline-info mb-4" href="{% url 'resident-posts' resident.id %}"> Liste de comptes rendus </a>
+          <a class="btn btn-outline-info mb-4" href="{% url 'resident-posts' resident.id %}"> Liste des comptes rendus </a>
           {% elif user.is_staff %}
           <p class="article-content"> <strong>Opérations subies : </strong>
             - {{ resident.surgeries }}
@@ -32,9 +32,9 @@
           <p class="article-content"> <strong>Médicaments prescrits : </strong>  <br>{{ resident.medical_treatment }}</p>
           <p class="article-content"> <strong>Information a ne pas divulguer : </strong> {{ resident.secret_information }}</p>
           <a class="btn btn-outline-info mb-4" href="{% url 'post-create' resident.id %}"> Compte rendu </a>
-          <a class="btn btn-outline-info mb-4" href="{% url 'resident-posts' resident.id %}"> Liste de comptes rendus </a>
+          <a class="btn btn-outline-info mb-4" href="{% url 'resident-posts' resident.id %}"> Liste des comptes rendus </a>
           {% elif user.is_active %}
-          <a class="btn btn-outline-info mb-4" href="{% url 'resident-posts' resident.id %}"> Liste de comptes rendus </a>
+          <a class="btn btn-outline-info mb-4" href="{% url 'resident-posts' resident.id %}"> Liste des comptes rendus </a>
           {% endif %}
       </div>
     </article>
