@@ -6,9 +6,7 @@
           <div class="media-body">
             <div class="article-metadata">
                 <h2>
-                    <p class="article-title mb-4">
-                        {{ user.last_name }} {{ user.first_name }}
-                    </p>
+                    <a class="mr-2" href="{% url 'user-posts' user.username %}">{{ user.last_name }} {{ user.first_name }}</a>
                  </h2>
 
             </div>

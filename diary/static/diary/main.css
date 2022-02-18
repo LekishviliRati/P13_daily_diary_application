@@ -4,6 +4,12 @@ body {
   margin-top: 6rem;
 }
 
+main {
+  width: 90vw;
+  margin : 0 auto;
+  min-height: calc(100vh);
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
 }
@@ -30,10 +36,12 @@ ul {
 
 .content-section {
   background: #ffffff;
-  padding: 10px 20px;
+  padding: 20px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
-  margin-bottom: 20px;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  margin-left: 2em;
 }
 
 .article-title {
@@ -89,15 +97,14 @@ a.article-title:hover {
   font-family: serif, sans-serif, "Times New Roman";
 }
 
-
 .footer-distributed{
-	background: #666;
+	background-color: rgba(52, 90, 97, 0.2);
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
 	text-align: left;
 	font: bold 16px sans-serif;
-	padding: 55px 50px;
+	padding: 1em;
 }
 
 .footer-distributed .footer-left,

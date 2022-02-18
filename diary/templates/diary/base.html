@@ -9,6 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
     <!-- Add CSS file -->
     <link rel="stylesheet" type="text/css" href="{% static 'diary/main.css' %}">
 
@@ -25,7 +27,7 @@
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
           <a class="navbar-brand mr-4" href="{% url 'diary-home' %}">
-              <img src="/static/diary/media/logo.jpg" alt="logo">
+              <img src="{% static 'diary/media/pictures/logo.jpg' %}" alt="logo">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -79,46 +81,36 @@
       </div>
     </main>
     <!-- Posts Display - End -->
-
     <!-- Footer-->
     <footer class="footer-distributed">
 
         <div class="footer-left">
 
-            <h3>Company<span>logo</span></h3>
+            <span><img src="{% static 'diary/media/pictures/logo.jpg' %}" alt="logo"></span>
 
             <p class="footer-links">
-                <a href="#" class="link-1">Home</a>
-
-                <a href="#">Blog</a>
-
-                <a href="#">Pricing</a>
-
-                <a href="#">About</a>
-
-                <a href="#">Faq</a>
-
+                <a href="#" class="link-1">Accueil</a>
                 <a href="#">Contact</a>
             </p>
 
-            <p class="footer-company-name">Company Name © 2015</p>
+            <p class="footer-company-name">Nom de l'entreprise © 2022</p>
         </div>
 
         <div class="footer-center">
 
             <div>
                 <i class="fa fa-map-marker"></i>
-                <p><span>444 S. Cedros Ave</span> Solana Beach, California</p>
+                <p><span>79, Place de la Madeleine</span> 75008 PARIS</p>
             </div>
 
             <div>
                 <i class="fa fa-phone"></i>
-                <p>+1.555.555.5555</p>
+                <p> 01.95.71.05.26</p>
             </div>
 
             <div>
                 <i class="fa fa-envelope"></i>
-                <p><a href="mailto:support@company.com">support@company.com</a></p>
+                <p><a href="mailto:support@company.com">contact@entreprise.com</a></p>
             </div>
 
         </div>
@@ -126,25 +118,24 @@
         <div class="footer-right">
 
             <p class="footer-company-about">
-                <span>About the company</span>
+                <span>A propos de l'entreprise</span>
                 Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
             </p>
 
             <div class="footer-icons">
-
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-github"></i></a>
-
+                <a href="https://fr-fr.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/?lang=fr" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://fr.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
 
         </div>
     </footer>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+
 </html>
