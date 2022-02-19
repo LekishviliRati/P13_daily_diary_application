@@ -1,13 +1,13 @@
 {% extends "diary/base.html" %}
 {% block content %}
     {% for user in users %}
-        {% if user.profile.status == "1" %}
+        {% if user.profile.status == "2" %}
             <article class="media content-section">
                 <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
               <div class="media-body">
                 <div class="article-metadata">
                     <h2>
-                        <a class="mr-2" href="{% url 'user-posts' user.username %}">{{ user.last_name }} {{ user.first_name }}</a>
+                        <a class="mr-2" href="{% url 'relative-profiles' user.username %}">{{ user.last_name }} {{ user.first_name }}</a>
                      </h2>
 
                 </div>

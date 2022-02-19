@@ -70,6 +70,15 @@ class UserListView(ListView):
     ordering = ['last_name']
 
 
+# NEW Relatives List View
+class RelativeListView(ListView):
+    model = User
+    template_name = "users/relatives.html"
+    context_object_name = "users"
+    paginate_by = 5
+    ordering = ['last_name']
+
+
 # NEW Resident List View
 class RelativeProfileListView(ListView):
     model = Profile

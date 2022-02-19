@@ -5,7 +5,7 @@ body {
 }
 
 main {
-  width: 90vw;
+  width: 100vw;
   margin : 0 auto;
   min-height: calc(100vh);
 }
@@ -35,7 +35,7 @@ ul {
 }
 
 .content-section {
-  background: #ffffff;
+  background: rgb(255, 231, 162, 0.07);
   padding: 20px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
@@ -98,8 +98,7 @@ a.article-title:hover {
 }
 
 .footer-distributed{
-	background-color: rgba(52, 90, 97, 0.2);
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	background-color: rgba(173, 213, 234, 0.7);
 	box-sizing: border-box;
 	width: 100%;
 	text-align: left;
@@ -277,4 +276,20 @@ a.article-title:hover {
 		margin-left: 0;
 	}
 
+}
+
+/* Home page pictures */
+
+.rounded-circle {
+  filter: drop-shadow(0 0 1.5rem rgb(255, 231, 162));
+}
+
+/* Home page article sizes */
+section {
+	width: 115%;
+}
+
+/* Nav bar background color */
+.bg-steel {
+	background-color: rgb(207, 222, 199, 0.7);
 }
