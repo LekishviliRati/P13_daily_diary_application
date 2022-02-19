@@ -16,6 +16,10 @@ class Resident(models.Model):
     medical_treatment = models.TextField()
     entry_date = models.DateField(default=timezone.now)
     image = models.ImageField(default='default.jpg', upload_to='pics')
+    floor = models.CharField(max_length=20, default='1')
+    room_number = models.CharField(max_length=20, default='1')
+    material = models.TextField(default='Pas de matériels')
+    activities = models.TextField(default='Pas inscrit aux activités')
 
     class Meta:
         ordering = ['last_name']

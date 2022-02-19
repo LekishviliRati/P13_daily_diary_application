@@ -40,7 +40,6 @@
             <div class="navbar-nav">
                 {% if user.is_authenticated %}
                     {% if user.is_superuser %}
-                        <a class="nav-item nav-link" href="{% url 'register' %}"> Création utilisateur ⭐️ </a>
                         <a class="nav-item nav-link" href="{% url 'users' %}"> Employés </a>
                         <a class="nav-item nav-link" href="{% url 'relatives' %}"> Proches </a>
                         <a class="nav-item nav-link" href="{% url 'user-residents' %}"> Résidents </a>

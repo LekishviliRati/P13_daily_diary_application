@@ -11,30 +11,37 @@
         <h2 class="article-title"> {{ resident.first_name }} {{ resident.last_name }} </h2>
         <p class="article-content"> <strong>Date de naissance : </strong> {{ resident.birth_date }}</p>
         <p class="article-content"> <strong>Lieu de naissance : </strong> {{ resident.place_of_birth }}</p>
-        <p class="article-content"> <strong>Médecin traitant : </strong> {{ resident.treating_doctor }}</p>
+        <p class="article-content"> <strong>Étage : </strong> {{ resident.floor }}</p>
+        <p class="article-content"> <strong>Numéro de chambre : </strong> {{ resident.room_number }}</p>
+        <p class="article-content"> <strong>Matériels : </strong> {{ resident.material }}</p>
+        <p class="article-content"> <strong>Activités : </strong> {{ resident.activities }}</p>
 
           {% if user.is_superuser %}
-          <p class="article-content"> <strong>Proches : </strong>
-              {{ resident.relatives }}
-          </p>
-          <p class="article-content"> <strong>Opérations subies : </strong>
-            - {{ resident.surgeries }}
-          </p>
-          <p class="article-content"> <strong>Médicaments prescrits : </strong>  <br>{{ resident.medical_treatment }}</p>
-          <p class="article-content"> <strong>Information a ne pas divulguer : </strong> {{ resident.secret_information }}</p>
-          <a class="btn btn-outline-info mb-4" href="{% url 'post-create' resident.id %}"> Compte rendu </a>
-          <a class="btn btn-outline-info mb-4" href="{% url 'resident-posts' resident.id %}"> Liste des comptes rendus </a>
+              <p class="article-content"> <strong>Proches (à contacter si urgence) : </strong>
+                  {{ resident.relatives }}
+              </p>
+              <p class="article-content"> <strong>Opérations subies : </strong>
+                - {{ resident.surgeries }}
+              </p>
+              <p class="article-content"> <strong>Médicaments prescrits : </strong>  <br>{{ resident.medical_treatment }}</p>
+              <p class="article-content"> <strong>Information a ne pas divulguer : </strong> {{ resident.secret_information }}</p>
+              <a class="btn btn-outline-info mb-4" href="{% url 'post-create' resident.id %}"> Compte rendu </a>
+              <a class="btn btn-outline-info mb-4" href="{% url 'resident-posts' resident.id %}"> Liste des comptes rendus </a>
+
           {% elif user.is_staff %}
-          <p class="article-content"> <strong>Opérations subies : </strong>
-            - {{ resident.surgeries }}
-          </p>
-          <p class="article-content"> <strong>Proches : </strong> {{ resident.relatives }}</p>
-          <p class="article-content"> <strong>Médicaments prescrits : </strong>  <br>{{ resident.medical_treatment }}</p>
-          <p class="article-content"> <strong>Information a ne pas divulguer : </strong> {{ resident.secret_information }}</p>
-          <a class="btn btn-outline-info mb-4" href="{% url 'post-create' resident.id %}"> Compte rendu </a>
-          <a class="btn btn-outline-info mb-4" href="{% url 'resident-posts' resident.id %}"> Liste des comptes rendus </a>
+              <p class="article-content"> <strong>Proches (à contacter si urgence) : </strong>
+                  {{ resident.relatives }}
+              </p>
+              <p class="article-content"> <strong>Opérations subies : </strong>
+                - {{ resident.surgeries }}
+              </p>
+              <p class="article-content"> <strong>Médicaments prescrits : </strong>  <br>{{ resident.medical_treatment }}</p>
+              <p class="article-content"> <strong>Information a ne pas divulguer : </strong> {{ resident.secret_information }}</p>
+              <a class="btn btn-outline-info mb-4" href="{% url 'post-create' resident.id %}"> Compte rendu </a>
+              <a class="btn btn-outline-info mb-4" href="{% url 'resident-posts' resident.id %}"> Liste des comptes rendus </a>
+
           {% elif user.is_active %}
-          <a class="btn btn-outline-info mb-4" href="{% url 'resident-posts' resident.id %}"> Liste des comptes rendus </a>
+              <a class="btn btn-outline-info mb-4" href="{% url 'resident-posts' resident.id %}"> Liste des comptes rendus </a>
           {% endif %}
       </div>
     </article>
