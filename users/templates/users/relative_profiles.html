@@ -1,6 +1,6 @@
 {% extends "diary/base.html" %}
 {% block content %}
-    {% if view.kwargs.username == user.username %}
+    {% if view.kwargs.username == user.username or user.is_staff or user.is_superuser%}
         <h2 class="mb-3"> Les résidents de : {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h2>
         {% for relative in relatives %}
             <article class="media content-section">
