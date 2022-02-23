@@ -52,6 +52,12 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title', 'resident', 'content']
 
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.fields[1].label = 'Titre'
+    #     self.fields[2].label = 'Résident'
+    #     self.fields[3].label = 'Contenu'
+
     # Initialise resident value
     def get_initial(self, *args, **kwargs):
         initial = super().get_initial(**kwargs)

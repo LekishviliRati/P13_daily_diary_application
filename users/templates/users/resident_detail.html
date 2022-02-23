@@ -13,8 +13,12 @@
         <p class="article-content"> <strong>Lieu de naissance : </strong> {{ resident.place_of_birth }}</p>
         <p class="article-content"> <strong>Étage : </strong> {{ resident.floor }}</p>
         <p class="article-content"> <strong>Numéro de chambre : </strong> {{ resident.room_number }}</p>
-        <p class="article-content"> <strong>Matériels : </strong> {{ resident.material }}</p>
-        <p class="article-content"> <strong>Activités : </strong> {{ resident.activities }}</p>
+        <p class="article-content"> <strong>Matériels : </strong>
+            {{ resident.material }}
+        </p>
+        <p class="article-content"> <strong>Activités : </strong>
+            {{ resident.activities }}
+        </p>
 
           {% if user.is_superuser %}
               <p class="article-content"> <strong>Proches (à contacter en cas d'urgence) : </strong>
