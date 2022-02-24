@@ -56,11 +56,6 @@ class ResidentListView(ListView):
     ordering = ['last_name']
 
 
-# NEW Resident detail View
-class ResidentDetailView(DetailView):
-    model = Resident
-
-
 # NEW User List View
 class UserListView(ListView):
     model = User
@@ -95,3 +90,14 @@ class RelativeProfileListView(ListView):
         # return Profile.objects.filter(relatives=user).order_by('-id')
 
 
+# NEW Resident detail View
+class ResidentDetailView(DetailView):
+    model = Resident
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        user = get_object_or_404(User, username=self.request.user.username)
+        context['user_relatives_list'] = user.profile.relatives.all()
+        return context
