@@ -113,3 +113,11 @@ class ResidentPostListView(ListView):
         resident_id = self.kwargs.get('id')
         post = Post.objects.filter(resident=resident_id)
         return post
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        user = get_object_or_404(User, username=self.request.user.username)
+        context['user_relatives_list'] = user.profile.relatives.all()
+        return context
