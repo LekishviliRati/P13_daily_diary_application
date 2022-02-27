@@ -27,8 +27,8 @@ class Resident(models.Model):
     def __str__(self):
         return f'{self.first_name} {self.last_name} '
 
-    def save(self):
-        super().save()
+    def save(self, *args, **kwargs):
+        super(Resident, self).save(*args, **kwargs)
 
         img = Image.open(self.image.path)
 
