@@ -46,7 +46,6 @@ class TestViews(TestCase):
         self.substitute_resident_posts_list_url = \
             reverse("resident-posts", args=[1])
 
-
     def test_home_page(self):
         response = self.client.get(self.home_page_url)
 
