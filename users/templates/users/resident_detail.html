@@ -4,7 +4,7 @@
     {% if user.is_authenticated %}
         {% if user_relatives_list %}
             {% for relative in user_relatives_list %}
-                {% if resident.pk == relative.pk %}
+                {% if resident.pk == relative.pk or user.is_superuser or user.is_staff %}
                     <article class="media content-section">
                         <!-- "object" is used instead of "post" because of class based views -->
                         <img class="rounded-circle account-img" src="{{ resident.image.url }}">
