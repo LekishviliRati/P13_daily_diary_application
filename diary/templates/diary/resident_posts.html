@@ -4,7 +4,7 @@
         {% if user_relatives_list %}
             {% for relative in user_relatives_list %}
                 {% for post in posts %}
-                    {% if post.resident.pk == relative.pk %}
+                    {% if post.resident.pk == relative.pk or user.is_superuser or user.is_staff %}
                             <article class="media content-section">
                               <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
                               <div class="media-body">
