@@ -115,3 +115,8 @@ class ResidentPostListView(LoginRequiredMixin, ListView):
         user = get_object_or_404(User, username=self.request.user.username)
         context['user_relatives_list'] = user.profile.relatives.all()
         return context
+
+
+# New not found handler
+def handler404(request, exception):
+    return render(request, 'users/404.html')

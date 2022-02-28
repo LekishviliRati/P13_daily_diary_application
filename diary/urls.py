@@ -23,3 +23,4 @@ urlpatterns = [
     path('post/article/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('about/', views.about, name='diary-about'),
 ]
+

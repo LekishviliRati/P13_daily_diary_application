@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 # new
 from .models import Resident, Profile
 # new
@@ -48,7 +49,7 @@ def profile(request):
 
 
 # NEW Resident List View
-class ResidentListView(ListView):
+class ResidentListView(LoginRequiredMixin, ListView):
     model = Resident
     template_name = "users/residents.html"
     context_object_name = "residents"
@@ -57,7 +58,7 @@ class ResidentListView(ListView):
 
 
 # NEW User List View
-class UserListView(ListView):
+class UserListView(LoginRequiredMixin, ListView):
     model = User
     template_name = "users/users.html"
     context_object_name = "users"
@@ -66,7 +67,7 @@ class UserListView(ListView):
 
 
 # NEW Relatives List View
-class RelativeListView(ListView):
+class RelativeListView(LoginRequiredMixin, ListView):
     model = User
     template_name = "users/relatives.html"
     context_object_name = "users"
@@ -75,7 +76,7 @@ class RelativeListView(ListView):
 
 
 # NEW Resident List View
-class RelativeProfileListView(ListView):
+class RelativeProfileListView(LoginRequiredMixin, ListView):
     model = Profile
     template_name = "users/relative_profiles.html"
     context_object_name = "relatives"
@@ -91,7 +92,7 @@ class RelativeProfileListView(ListView):
 
 
 # NEW Resident detail View
-class ResidentDetailView(DetailView):
+class ResidentDetailView(LoginRequiredMixin, DetailView):
     model = Resident
 
     def get_context_data(self, **kwargs):
