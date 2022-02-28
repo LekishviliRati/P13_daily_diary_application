@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from users.models import Resident, Profile
+from users.models import Resident
 
 
 class ModelsTestsCase(TestCase):

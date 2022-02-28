@@ -16,15 +16,15 @@ def home(request):
 
 
 # function based view
-def post(request):
-    context = {
-        'posts': Post.objects.all()
-    }
-    return render(request, 'diary/posts.html', context)
-
+# def post(request):
+#     context = {
+#         'posts': Post.objects.all()
+#     }
+#     return render(request, 'diary/posts.html', context)
+#
 
 # class based view
-class PostListView(ListView):
+class PostListView(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'diary/posts.html'
     context_object_name = 'posts'  # Without context_object_name nos posts are displayed
@@ -32,7 +32,7 @@ class PostListView(ListView):
     paginate_by = 5
 
 
-class UserPostListView(ListView):
+class UserPostListView(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'diary/user_posts.html'
     context_object_name = 'posts'  # Without context_object_name nos posts are displayed
@@ -44,19 +44,13 @@ class UserPostListView(ListView):
         return Post.objects.filter(author=user).order_by('-date')
 
 
-class PostDetailView(DetailView):
+class PostDetailView(LoginRequiredMixin, DetailView):
     model = Post
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title', 'resident', 'content']
-
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-    #     self.fields[1].label = 'Titre'
-    #     self.fields[2].label = 'Résident'
-    #     self.fields[3].label = 'Contenu'
 
     # Initialise resident value
     def get_initial(self, *args, **kwargs):
@@ -102,7 +96,7 @@ def about(request):
 
 
 # new residents posts list view
-class ResidentPostListView(ListView):
+class ResidentPostListView(LoginRequiredMixin, ListView):
     model = Post
     template_name = 'diary/resident_posts.html'
     context_object_name = 'posts'  # Without context_object_name nos posts are displayed
