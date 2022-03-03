@@ -84,7 +84,7 @@ class RelativeProfileListView(LoginRequiredMixin, ListView):
     ordering = ['last_name']
 
     def get_queryset(self):
-        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        user = get_object_or_404(User, id=self.kwargs.get('id'))
         relatives = user.profile.relatives.all()
         return relatives
         # user = get_object_or_404(User, username=self.kwargs.get('username'))

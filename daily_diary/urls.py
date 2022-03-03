@@ -50,7 +50,8 @@ urlpatterns = [
     path('relatives/', user_views.RelativeListView.as_view(), name='relatives'),
 
     # new relative residents
-    path('relative_profiles/<str:username>/', user_views.RelativeProfileListView.as_view(), name='relative-profiles'),
+    # path('relative_profiles/<str:username>/', user_views.RelativeProfileListView.as_view(), name='relative-profiles'),
+    path('relative_profiles/<int:id>/', user_views.RelativeProfileListView.as_view(), name='relative-profiles'),
 
     path('', include('diary.urls')),
 ]
