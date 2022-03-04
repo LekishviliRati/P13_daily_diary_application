@@ -91,10 +91,6 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return False
 
 
-def about(request):
-    return render(request, 'diary/about.html', {'title': 'About'})
-
-
 # new residents posts list view
 class ResidentPostListView(LoginRequiredMixin, ListView):
     model = Post
