@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 # new
 from .models import Resident, Profile
 # new
@@ -34,7 +34,7 @@ def profile(request):
         if user_update_form.is_valid() and profile_update_form.is_valid():
             user_update_form.save()
             profile_update_form.save()
-            messages.success(request, f' Votre compte a été mis à jour ')
+            messages.success(request, 'Votre compte a été mis à jour ')
             return redirect('profile')
     else:
         user_update_form = UserUpdateForm(instance=request.user)

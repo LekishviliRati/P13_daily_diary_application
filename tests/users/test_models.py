@@ -51,5 +51,3 @@ class ModelsTestsCase(TestCase):
         )
         # "Pas renseigné" is de default value of user.profile.address
         self.assertEqual(user.profile.address, "Pas renseigné")
-
-

@@ -30,7 +30,7 @@ class TestViews(TestCase):
             content="content",
             resident=self.resident,
         )
-        self.register_page_url = reverse("register")
+        # self.register_page_url = reverse("register")
         self.profile_page_url = reverse("profile")
         self.login_page_url = reverse("login")
         self.logout_page_url = reverse("logout")
@@ -43,13 +43,13 @@ class TestViews(TestCase):
         self.users_list_page_url = reverse("users")
         self.relatives_list_page_url = reverse("relatives")
         self.relative_profiles_page_url = \
-            reverse("relative-profiles", args=[self.user.username])
+            reverse("relative-profiles", args=[self.user.id])
 
-    def test_register_page(self):
-        response = self.client.get(self.register_page_url)
-
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "users/register.html")
+    # def test_register_page(self):
+    #     response = self.client.get(self.register_page_url)
+    #
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertTemplateUsed(response, "users/register.html")
 
     def test_profile_page(self):
         self.client.force_login(self.user)
